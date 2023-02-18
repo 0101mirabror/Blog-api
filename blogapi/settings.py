@@ -43,12 +43,18 @@ INSTALLED_APPS = [
     # Local
     "accounts.apps.AccountsConfig", # new
     "posts.apps.PostsConfig",  # new
+    "rest_framework.authtoken", # new
 ]
 
 REST_FRAMEWORK = {
     "DEFAULT_PERMISSION_CLASSES":[
         # "rest_framework.permissions.AllowAny", #new
         "rest_framework.permissions.IsAuthenticated",  # new
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES":[ #new
+    "rest_framework.authentication.SessionAuthentication", # new
+    # "rest_framework.authentication.BasicAuthentication", # new
+    "rest_framework.authentication.TokenAuthentication", # new  
     ],
 }
 
